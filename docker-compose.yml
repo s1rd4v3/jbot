@@ -1,0 +1,24 @@
+services:
+  jdownloader:
+    image: plusminus/jdownloader2-headless:latest	
+    hostname: "jdownloader"
+    restart: "unless-stopped"
+    volumes:
+      - "/volume1/docker/volumes/jDownloader:/opt/JDownloader/cfg" # jDownloader data
+      - "/volume1/downloads:/opt/JDownloader/Downloads" # Downloads folder
+    # (provide your credentials via environment variables)
+    environment: 
+      - EMAIL=${JD_EMAIL}
+      - PASSWORD=${JD_PASSWORD}
+  filebot:
+    image: rednoah/filebot:watcher	
+    hostname: "filebot"
+    restart: "unless-stopped"
+    volumes:
+      - "/volume1/docker/volumes/Filebot:/data" # Filebot data
+      - "/volume1/downloads/EXTRACTED:/volume1/input" # Extracted downloads folder
+      - "/volume1/video:/volume1/output" # Final video folder
+    environment:
+      - SETTLE_DOWN_TIME=300
+    entrypoint: ["/opt/bin/filebot-watcher"]
+    command: ${FB_INPUT_PATH} --output ${FB_OUTPUT_PATH} --action ${FB_ACTION} --lang ${FB_LANGUAGE} --order DVD --def "unsorted=y" "artwork=y" "clean=y" "deleteAfterExtract=y" "seriesFormat=${FB_TVSHOW_FORMAT}" "movieFormat=${FB_MOVIE_FORMAT}" "unsortedFormat=${FB_SORTED_PATH}" "excludeList=excludes.txt" "minLengthMS=300000" "minFileSize=100000000" "subtitles=${FB_SUBTITLES}" -non-strict --log all --log-file ${FB_LOG_PATH}
