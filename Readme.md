@@ -24,7 +24,7 @@
 | JD_PASSWORD     | my.jdownloader password |
 
 ### Filebot Docker variables
-| Variable name     | Default value                                           | Description |
+| Variable name     | Example value                                           | Description |
 | :-                | :-                                                      | :-          |
 | FB_INPUT_PATH     | `/volume1/input`                                        | Download folder (has to match with the volume definitions) |
 | FB_OUTPUT_PATH    | `/volume1/output`                                       | Video folder (has to match with the volume definitions) |
