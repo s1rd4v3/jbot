@@ -6,10 +6,11 @@
 > Tested only with Synology DSM Docker via Portainer
 
 
-| JDownloader Config                                      | Value                                 |
-|:-                                                       |:-                                     |
-| Archive Extractor > Extraction: Custom Extraction Path  | /opt/JDownloader/Downloads/EXTRACTED  |
-| Settings > Default Download Folder                      | /opt/JDownloader/Downloads            |
+| JDownloader Config                                      | Value                                 | Description |
+|:-                                                       |:-                                     |:-           |
+| Archive Extractor > Extraction: Custom Extraction Path  | true                                  | Enable usage of custom extraction paths |
+| Archive Extractor > Extraction: Custom Extraction Path  | /opt/JDownloader/Downloads/EXTRACTED  | Absolute path to the folder where all archives should be extracted to |
+| Settings > Default Download Folder                      | /opt/JDownloader/Downloads            | Absolute path to download folder
 
 ## Docker config
 > The variables starting with `FB_` and `JD_` have to be defined as environment variables on the host system
@@ -23,7 +24,7 @@
 | JD_PASSWORD     | my.jdownloader password |
 
 ### Filebot Docker variables
-| Variable name     | Default value                                           | description |
+| Variable name     | Default value                                           | Description |
 | :-                | :-                                                      | :-          |
 | FB_INPUT_PATH     | `/volume1/input`                                        | Download folder (has to match with the volume definitions) |
 | FB_OUTPUT_PATH    | `/volume1/output`                                       | Video folder (has to match with the volume definitions) |
