@@ -5,12 +5,12 @@
 
 > Tested only with Synology DSM Docker via Portainer
 
-
+#### The following settings should be changed in jDownloader settings
 | JDownloader Config                                      | Value                                 | Description |
 |:-                                                       |:-                                     |:-           |
 | Archive Extractor > Extraction: Custom Extraction Path  | true                                  | Enable usage of custom extraction paths |
-| Archive Extractor > Extraction: Custom Extraction Path  | /opt/JDownloader/Downloads/EXTRACTED  | Absolute path to the folder where all archives should be extracted to |
-| Settings > Default Download Folder                      | /opt/JDownloader/Downloads            | Absolute path to download folder
+| Archive Extractor > Extraction: Custom Extraction Path  | /opt/JDownloader/Downloads/EXTRACTED  | Absolute path to the folder where all archives should be extracted to within container |
+| Settings > Default Download Folder                      | /opt/JDownloader/Downloads            | Absolute path to download folder within container |
 
 ## Docker config
 > The variables starting with `FB_` and `JD_` have to be defined as environment variables on the host system
